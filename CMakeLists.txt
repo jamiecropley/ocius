@@ -11,4 +11,3 @@ add_executable(ocius main.cpp)
 
 # Link glfw3 to the executable
 target_link_libraries(ocius PRIVATE glfw)
-message(STATUS "Found glfw3 config: ${glfw3_DIR}")

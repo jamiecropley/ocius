@@ -4,7 +4,7 @@
 
 https://ocius.xyz
 
-## Socials:
+## socials:
 
 - https://discord.gg/bMnDf965Pu
 - https://facebook.com/ociuse
@@ -15,7 +15,7 @@ https://ocius.xyz
 - https://twitter.com/ociuse
 - https://youtube.com/@ociuse
 
-Email:
+## email:
 
 - jamie@ocius.xyz
 
