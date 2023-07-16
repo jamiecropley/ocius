@@ -23,15 +23,16 @@ int main(void)
     /* Make the window's context current */
     glfwMakeContextCurrent(window);
 
-    /* Print a message to the command prompt */
-    std::cout << "Welcome to the application! The window should now be open." << std::endl;
-
+    /* Print OpenGL version information and confirm window has opened in terminal. */
+    const GLubyte* version = glGetString(GL_VERSION);
+    std::cout << "- Window has opened." << std::endl;
+    std::cout << "- OpenGL version: " << version << std::endl;
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
         /* Render here */
-        //glClear(GL_COLOR_BUFFER_BIT); // uncomment when I add OpenGL
+        glClear(GL_COLOR_BUFFER_BIT);
 
         /* Swap front and back buffers */
         glfwSwapBuffers(window);
