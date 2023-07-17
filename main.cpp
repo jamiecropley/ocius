@@ -1,5 +1,6 @@
 #include <iostream>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
 
 /* The below code will change at some point, the window will change to a separate file as a class,
  the below code is more for testing at this point. */
@@ -27,6 +28,16 @@ int main(void)
     const GLubyte* version = glGetString(GL_VERSION);
     std::cout << "- Window has opened." << std::endl;
     std::cout << "- OpenGL version: " << version << std::endl;
+
+    // Define two vectors
+    glm::vec3 vec1(1.0f, 2.0f, 3.0f);
+    glm::vec3 vec2(4.0f, 5.0f, 6.0f);
+
+    // Add the vectors together
+    glm::vec3 result = vec1 + vec2;
+
+    // Print out the result
+    std::cout << "Vector addition result: " << result.x << ", " << result.y << ", " << result.z << std::endl;
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))

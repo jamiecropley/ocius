@@ -9,7 +9,11 @@ find_package(glfw3 CONFIG REQUIRED)
 # Find OpenGL
 find_package(OpenGL REQUIRED)
 
+# Find glm
+find_package(glm CONFIG REQUIRED)
+
+# Add your executable
 add_executable(ocius main.cpp)
 
-# Link glfw3 and OpenGL to the executable
-target_link_libraries(ocius PRIVATE glfw OpenGL::GL)
+# Link glfw3, OpenGL, and glm to the executable
+target_link_libraries(ocius PRIVATE glfw OpenGL::GL glm::glm)
