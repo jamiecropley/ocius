@@ -73,13 +73,14 @@ int main(void)
     // MATRIX CLASS BEGIN:
 
     // I need to look into the mathematics before starting this.
-    // Do I need to do just rotation, or translation and scaling as well?
+    // Do I need to do just rotation, or translation and scaling as well? Yes as per below.
 
     // I need to do:
-    // - Transform
-    // - Invert
-    // - Transpose
-    // - Identity
+    // - Transform (rotation, or translation and scaling (not needed for rendering but may as well get it out the way))
+    // - Invert (just invert)
+    // - Transpose (just transpose)
+    // - Identity (just identity)
+
 
     // MATRIX CLASS END.
 
