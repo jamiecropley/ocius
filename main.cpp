@@ -34,6 +34,8 @@ int main(void)
 
     // MATH ENGINE BASIC TESTING
 
+    // I have done it has X,Y,Z as 3D as the default, but I will just do some sort of switch dynamic to change it to 2D if needed.
+
     // VECTOR CLASS BEGIN:
     //VECTORS:
     // These vector values are just for testing! Final version will be seperated out of main.cpp into reusable classes.
