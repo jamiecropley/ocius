@@ -78,10 +78,10 @@ int main(void)
     // Do I need to do just rotation, or translation and scaling as well? Yes as per below.
 
     // I need to do:
-    // - Transform (rotation, or translation and scaling (not needed for rendering but may as well get it out the way))
-    // - Invert (just invert)
-    // - Transpose (just transpose)
-    // - Identity (just identity)
+    // TODO: Transform (rotation, or translation and scaling (not needed for rendering but may as well get it out the way))
+    // TODO: Invert (just invert)
+    // TODO: Transpose (just transpose)
+    // TODO: Identity (just identity)
 
 
     // MATRIX CLASS END.
