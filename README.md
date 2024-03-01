@@ -6,7 +6,6 @@ https://ocius.xyz
 
 ## socials:
 
-- https://discord.gg/bMnDf965Pu
 - https://facebook.com/ociuse
 - https://instagram.com/ociuse
 - https://linkedin.com/company/ociuse
