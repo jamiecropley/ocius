@@ -3,13 +3,13 @@ project(ocius)
 
 set(CMAKE_CXX_STANDARD 23)
 
-# Find glfw3
+# Find glfw3, is managed by conan but via CLion Plugin, Conan installed system level using a default profile.
 find_package(glfw3 CONFIG REQUIRED)
 
-# Find OpenGL
+# Find OpenGL, is installed at system level
 find_package(OpenGL REQUIRED)
 
-# Find glm
+# Find glm, is managed by conan but via CLion Plugin, Conan installed system level using a default profile.
 find_package(glm CONFIG REQUIRED)
 
 # Add your executable
