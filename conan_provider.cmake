@@ -1,6 +1,28 @@
 # This file is managed by Conan, contents will be overwritten.
 # To keep your changes, remove these comment lines, but the plugin won't be able to modify your requirements
 
+# The MIT License (MIT)
+#
+# Copyright (c) 2024 JFrog
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+
 set(CONAN_MINIMUM_VERSION 2.0.5)
 
 
@@ -437,22 +459,23 @@ function(conan_install)
 
     if(NOT "${return_code}" STREQUAL "0")
         message(FATAL_ERROR "Conan install failed='${return_code}'")
-    else()
-        # the files are generated in a folder that depends on the layout used, if
-        # one is specified, but we don't know a priori where this is.
-        # TODO: this can be made more robust if Conan can provide this in the json output
-        string(JSON CONAN_GENERATORS_FOLDER GET ${conan_stdout} graph nodes 0 generators_folder)
-        cmake_path(CONVERT ${CONAN_GENERATORS_FOLDER} TO_CMAKE_PATH_LIST CONAN_GENERATORS_FOLDER)
-        # message("conan stdout: ${conan_stdout}")
-        message(STATUS "CMake-Conan: CONAN_GENERATORS_FOLDER=${CONAN_GENERATORS_FOLDER}")
-        set_property(GLOBAL PROPERTY CONAN_GENERATORS_FOLDER "${CONAN_GENERATORS_FOLDER}")
-        # reconfigure on conanfile changes
-        string(JSON CONANFILE GET ${conan_stdout} graph nodes 0 label)
-        message(STATUS "CMake-Conan: CONANFILE=${CMAKE_SOURCE_DIR}/${CONANFILE}")
-        set_property(DIRECTORY ${CMAKE_SOURCE_DIR} APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/${CONANFILE}")
-        # success
-        set_property(GLOBAL PROPERTY CONAN_INSTALL_SUCCESS TRUE)
     endif()
+
+    # the files are generated in a folder that depends on the layout used, if
+    # one is specified, but we don't know a priori where this is.
+    # TODO: this can be made more robust if Conan can provide this in the json output
+    string(JSON CONAN_GENERATORS_FOLDER GET ${conan_stdout} graph nodes 0 generators_folder)
+    cmake_path(CONVERT ${CONAN_GENERATORS_FOLDER} TO_CMAKE_PATH_LIST CONAN_GENERATORS_FOLDER)
+    # message("conan stdout: ${conan_stdout}")
+    message(STATUS "CMake-Conan: CONAN_GENERATORS_FOLDER=${CONAN_GENERATORS_FOLDER}")
+    set_property(GLOBAL PROPERTY CONAN_GENERATORS_FOLDER "${CONAN_GENERATORS_FOLDER}")
+    # reconfigure on conanfile changes
+    string(JSON CONANFILE GET ${conan_stdout} graph nodes 0 label)
+    message(STATUS "CMake-Conan: CONANFILE=${CMAKE_SOURCE_DIR}/${CONANFILE}")
+    set_property(DIRECTORY ${CMAKE_SOURCE_DIR} APPEND PROPERTY CMAKE_CONFIGURE_DEPENDS "${CMAKE_SOURCE_DIR}/${CONANFILE}")
+    # success
+    set_property(GLOBAL PROPERTY CONAN_INSTALL_SUCCESS TRUE)
+
 endfunction()
 
 
@@ -627,4 +650,3 @@ if(NOT _cmake_program)
     get_filename_component(PATH_TO_CMAKE_BIN "${CMAKE_COMMAND}" DIRECTORY)
     set(PATH_TO_CMAKE_BIN "${PATH_TO_CMAKE_BIN}" CACHE INTERNAL "Path where the CMake executable is")
 endif()
-
